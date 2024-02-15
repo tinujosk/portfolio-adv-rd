@@ -17,6 +17,10 @@ header {
 }
 
 header h1 {
+  text-align: center;
+}
+
+header h1 a {
   font-size: 2.5rem;
   letter-spacing: 10px;
   background: linear-gradient(
@@ -27,6 +31,7 @@ header h1 {
   );
   background-clip: text;
   color: transparent;
+  padding: 10px;
 }
 
 main {
@@ -42,7 +47,7 @@ main {
   width: 90%;
 }
 
-.container aside {
+.container nav {
   width: 10%;
 }
 
@@ -71,7 +76,7 @@ ul {
   width: 50vw;
 }
 
-aside {
+nav {
   background-color: rgba(221, 213, 213, 0.4);
   padding: 20px;
 }
@@ -98,15 +103,16 @@ footer {
     rgba(234, 204, 204, 0.8) 50%,
     rgba(255, 255, 255, 0.4) 100%
   );
-  height: 20vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
 }
 
 .footer-details {
   display: flex;
-  padding: 20px;
+  padding: 5px;
   justify-content: center;
 }
 
@@ -142,7 +148,7 @@ article {
 .about-card > div > div {
   background-color: rgba(221, 213, 213, 0.4);
   width: 30%;
-  padding: 15px;
+  padding: 20px;
   border-radius: 5px;
 }
 
@@ -155,15 +161,31 @@ article {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  /* height: 50vh; */
 }
 
-.video-container {
+/* .video-container {
   flex: 1;
-  margin-right: 20px;
+}
+ */
+
+.video-container {
+  position: relative;
+  width: 70%;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .text-content {
-  flex: 1;
+  width: 20%;
 }
 
 .text-content {
@@ -174,7 +196,7 @@ article {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-auto-rows: auto;
   gap: 20px;
   padding: 20px;
@@ -188,4 +210,63 @@ article {
 .grid-item img {
   max-width: 100%;
   max-height: 100%;
+}
+
+@media (max-width: 1400px) {
+  .video-container {
+    width: 90%;
+  }
+  .video-card {
+    flex-direction: column;
+  }
+  .text-content {
+    width: 90%;
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+  }
+  .introduction {
+    flex-direction: column;
+  }
+
+  .intro-side {
+    margin-top: 40px;
+  }
+
+  .intro-side,
+  .container nav,
+  .container main {
+    width: unset;
+  }
+
+  .container nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .container nav {
+    order: -1; /* Bring the last item to the first position */
+  }
+
+  .about-card > div {
+    flex-direction: column;
+  }
+
+  .about-card > div > div {
+    width: 95%;
+    border-bottom: 1px solid rgb(190, 184, 184);
+    padding: 10px;
+  }
+
+  footer {
+    padding: 10px;
+  }
+
+  .footer-details {
+    flex-direction: column;
+    text-align: center;
+  }
 }
